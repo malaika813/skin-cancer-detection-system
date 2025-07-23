@@ -1,0 +1,24 @@
+# Ignore virtual environments
+.venv/
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Environment files
+.env
+.env.*
+
+# IDE/editor settings
+.vscode/
+*.swp
+
+# Model and large files (optional if over 100MB)
+*.h5
+*.pkl
+*.csv
+
+# System files
+.DS_Store
+Thumbs.db
