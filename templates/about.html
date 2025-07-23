@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About - Skin Cancer Detection System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+  <style>
+    body {
+      background-color: #1e1e2f;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .toggle-btn {
+      display: none;
+      position: fixed;
+      top: 15px;
+      left: 15px;
+      background-color: #212529;
+      border: none;
+      color: white;
+      padding: 10px 12px;
+      z-index: 1100;
+      border-radius: 4px;
+    }
+
+    .sidebar {
+      height: 100vh;
+      background-color: #2f3640;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 220px;
+      transition: left 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar h4 {
+      color: #d3d3d3;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+
+    .sidebar a {
+      color: #d3d3d3;
+      text-decoration: none;
+      display: block;
+      margin: 12px 0;
+      font-weight: 500;
+      font-size: 16px;
+    }
+
+    .sidebar a:hover {
+      color: #F1C27D;
+    }
+
+    .main-content {
+      margin-left: 240px;
+      padding: 60px 20px 40px;
+      flex: 1;
+    }
+
+    .main-content h1,
+    .main-content h2 {
+      color: #fff;
+    }
+
+    .footer {
+      background-color: #2f3640;
+      padding: 50px 30px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #f1f1f1;
+    }
+
+    @media (max-width: 768px) {
+      .toggle-btn {
+        display: block;
+      }
+
+      .sidebar {
+        left: -220px;
+        position: fixed;
+        height: 100%;
+        width: 220px;
+        top: 0;
+      }
+
+      .sidebar.show {
+        left: 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding-top: 60px;
+      }
+
+      .footer {
+        margin-left: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Toggle Button for Mobile -->
+<button class="toggle-btn" onclick="toggleSidebar()">
+  <i class="bi bi-list"></i>
+</button>
+
+<!-- Sidebar Dashboard -->
+<div class="sidebar" id="sidebar">
+  <h4><i class="bi bi-activity"></i> Dashboard</h4>
+  <a href="/home"><i class="bi bi-house-door-fill"></i> Home</a>
+  <a href="/about"><i class="bi bi-info-circle-fill"></i> About</a>
+  <a href="/resource"><i class="bi bi-journal-text"></i> Resource</a>
+  <a href="/profile"><i class="bi bi-person-circle"></i> Profile</a>
+  <a href="/history"><i class="bi bi-clock-history"></i> History</a>
+  <a href="/contact"><i class="bi bi-envelope-fill"></i> Contact</a>
+  <hr style="border-color: white;">
+  <a href="/logout"><i class="bi bi-box-arrow-right"></i> Logout</a>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+  <div class="section">
+    <h1>About the Skin Cancer Detection System</h1>
+    <p>This AI-powered web platform helps detect skin cancer using a deep learning model. It lets users upload images of skin lesions to instantly receive predictions about possible cancer types, empowering early diagnosis.</p>
+  </div>
+
+  <div class="section">
+    <h2> Vision & Mission</h2>
+    <p>Our mission is to make early detection of skin cancer accessible and faster for everyone. We aim to support healthcare providers through AI-powered screening tools and reduce late-stage diagnoses by enabling early awareness and action.</p>
+  </div>
+
+  <div class="section">
+    <h2> Motivation</h2>
+    <p>Skin cancer is one of the most common yet preventable cancers globally. Early diagnosis can significantly improve survival rates. With the power of AI, we can analyze images more quickly and accurately than traditional methods, saving time and lives.</p>
+  </div>
+
+  <div class="section">
+    <h2> Dataset Used</h2>
+    <p>We used the HAM10000 dataset — a large collection of over 10,000 images representing various skin lesion classes such as Melanoma, BCC, AKIEC, and more. These high-quality labeled images helped train our CNN model for accurate predictions.</p>
+  </div>
+
+  <div class="section">
+    <h2> How It Works</h2>
+    <p>The user uploads an image of a skin lesion, which is then preprocessed and passed through a trained Convolutional Neural Network (CNN). The model analyzes the image and returns the predicted condition along with the result stored in the user’s history.</p>
+  </div>
+
+  <div class="section">
+    <h2> Core Features</h2>
+    <p>Key features include user login/signup authentication, uploading and predicting skin conditions from images, viewing past predictions, and accessing educational resources on skin cancer.</p>
+  </div>
+
+  <div class="section">
+    <h2> Technical Implementation</h2>
+    <p>This platform is developed using Python and Flask for the backend. The prediction system uses machine learning models (CNN) trained on medical image datasets. The frontend is fully responsive and built with Bootstrap 5 to support seamless use on all devices.</p>
+    <p><strong>University of Sahiwal</strong><br>
+      Bachelor of Science in Computer Science<br>
+      Final Year Project – 2025</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>© 2025 Skin Cancer Detection System. All rights reserved.</p>
+  <p>This system supports early skin cancer detection using advanced CNNs. It empowers users and professionals to detect harmful lesions through image-based analysis.<br> This AI solution aids, not replaces, clinical judgment.</p>
+  <p>Designed and Developed by Malaika</p>
+</footer>
+
+<script>
+  function toggleSidebar() {
+    document.getElementById("sidebar").classList.toggle("show");
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

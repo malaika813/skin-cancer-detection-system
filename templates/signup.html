@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Signup</title>
+  <script>
+    function checkPasswordStrength(password) {
+      const strengthText = document.getElementById("strength");
+      if (password.length < 6) {
+        strengthText.innerHTML = "🔴 Too short";
+        strengthText.style.color = "red";
+      } else if (!/\d/.test(password) || !/[!@#$%^&*]/.test(password)) {
+        strengthText.innerHTML = "🟠 Weak";
+        strengthText.style.color = "orange";
+      } else {
+        strengthText.innerHTML = "🟢 Strong";
+        strengthText.style.color = "lightgreen";
+      }
+    }
+  </script>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e2f;
+      color: #d3d3d3;
+      margin: 0;
+      padding: 0;
+    }
+
+    .signup-container {
+      max-width: 400px;
+      width: 90%;
+      margin: 60px auto;
+      background-color: #2f3640;
+      padding: 30px 25px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      font-size: 26px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 14px;
+      background-color: #eee;
+      color: #000;
+    }
+
+    #strength {
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    input[type="submit"] {
+      background-color: #00bfff;
+      color: #121212;
+      border: none;
+      padding: 14px;
+      width: 100%;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #1ab7ff;
+    }
+
+    p {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    
+
+    a {
+      color: #00bfff;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      .signup-container {
+        padding: 25px 15px;
+        margin: 40px auto;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        padding: 10px;
+        font-size: 13px;
+      }
+
+      input[type="submit"] {
+        font-size: 15px;
+        padding: 12px;
+      }
+
+      p {
+        font-size: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="signup-container">
+    <h2>Sign Up</h2>
+    <form method="POST">
+      <label for="username">Username:</label>
+      <input type="text" name="username" placeholder="Enter username" required>
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" placeholder="Enter email" required>
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" onkeyup="checkPasswordStrength(this.value)" placeholder="Enter password" required>
+      <div id="strength"></div>
+
+      <input type="submit" value="Sign Up">
+    </form>
+
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+  </div>
+</body>
+</html>
